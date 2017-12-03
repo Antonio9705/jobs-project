@@ -1,0 +1,42 @@
+body {
+  background-color: rgb(201, 221, 248);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.leftSection {
+  float: left;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.column {
+  border: 1px solid #6b9ed4;
+  margin-top: 10px;
+}
+
+.title {
+  background-color: #A1C5D3;
+  text-align: center;
+  border-bottom: 1px solid #6b9ed4;
+  padding: 5px;
+}
+
+.content {
+  word-break: break-all;
+  padding: 10px;
+}
+
+.rightSection {
+  width: 700px;
+  float: left;
+}
+
+input[type=text], input[type=password] {
+  display: block;
+  margin-top: 0.5em;
+}

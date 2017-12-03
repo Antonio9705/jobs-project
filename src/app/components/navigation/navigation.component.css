@@ -1,0 +1,36 @@
+nav {
+  background-color: #A1C5D3;
+  border: 1px solid #6b9ed4;
+  font-size: 14px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li:last-child {
+  float: right;
+  margin-top: 0.5em;
+  margin-right: 7em;
+  text-decoration: underline;
+  color: #000000;
+  font-size: 16px;
+}
+
+nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  padding: 0.5em;
+}
+
+nav ul li a:hover {
+  background-color: #004EAB;
+  color: #ffffff;
+}
