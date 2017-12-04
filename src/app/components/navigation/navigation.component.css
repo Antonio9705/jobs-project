@@ -4,6 +4,14 @@ nav {
   font-size: 14px;
 }
 
+.greeting {
+  float: right;
+  padding-top: 0.2em;
+  padding-right: 3em;
+  text-decoration: underline;
+  font-size: 18px;
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -12,15 +20,6 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-}
-
-nav ul li:last-child {
-  float: right;
-  margin-top: 0.5em;
-  margin-right: 7em;
-  text-decoration: underline;
-  color: #000000;
-  font-size: 16px;
 }
 
 nav ul li a {

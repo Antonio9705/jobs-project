@@ -1,0 +1,9 @@
+<div class="authForm">
+  <form (ngSubmit)="onSubmit($event)" #loginForm method="post">
+    <label for="username">Username</label>
+    <input type="text" name="username" [(ngModel)]="username" id="username" placeholder="Enter username" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" [(ngModel)]="password" id="password" placeholder="Enter password" required>
+    <input type="submit" value="Login">
+  </form>
+</div>

@@ -1,9 +1,10 @@
 <nav>
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/">Login</a></li>
-    <li><a href="/">Register</a></li>
-    <li><a href="/">About</a></li>
-    <li>Hello, {{name}}!</li>
+    <li><a routerLink="/">Home</a></li>
+    <li *ngIf="!authService.isLogged()"><a routerLink="/login">Login</a></li>
+    <li *ngIf="!authService.isLogged()"><a routerLink="/register">Register</a></li>
+    <li *ngIf="authService.isLogged()"><a routerLink="/about">About</a></li>
+    <li *ngIf="authService.isLogged()" (click)="logout()"><a routerLink="/logout">Logout</a></li>
+    <li *ngIf="authService.isLogged()" [class.greeting]="authService.isLogged()"><span>Hello, {{username}}!</span></li>
   </ul>
 </nav>
