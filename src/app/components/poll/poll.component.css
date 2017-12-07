@@ -1,0 +1,24 @@
+h5 {
+  text-align: center;
+}
+
+p {
+  font-weight: bold;
+}
+
+.poll {
+  text-align: center;
+}
+
+.vote-button {
+  background-color: #6b9ed4;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  border: 1px solid rgb(79, 117, 255);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.vote-button:hover {
+  background-color: rgb(213, 230, 252);
+}

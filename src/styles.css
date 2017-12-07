@@ -49,7 +49,7 @@ form {
   margin: 0 auto;
 }
 
-form > label {
+form label {
   display: block;
   padding-bottom: 5px;
   font-size: 14px;
@@ -57,7 +57,7 @@ form > label {
   text-align: center;
 }
 
-form > input {
+form input {
   display: block;  
   margin-bottom: 10px;
   background-color: #A1C5D3;

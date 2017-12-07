@@ -1,0 +1,26 @@
+<div *ngIf="currentPoll" class="poll">
+  <div class="question">
+    <p>{{currentPoll.question}}</p>
+  </div>
+  <div class="answers">
+    <div class="container" *ngIf="!pollService.isUserVote(currentPoll)">
+      <div *ngFor="let answer of currentPoll.answers" class="answer">
+        <input type="radio" name="answer" [(ngModel)]="answerText" [value]="answer.content" id="{{answer.content}}">
+        <label for="{{answer.content}}">{{answer.content}}</label>
+      </div>
+      <div *ngIf="authService.isLogged()">
+        <button (click)="createVote()" class="vote-button">Vote</button>
+      </div>
+      <div *ngIf="!authService.isLogged()">
+        <p>Please login to vote.</p>
+      </div>
+    </div>
+    <div class="container" *ngIf="pollService.isUserVote(currentPoll)">
+      <div *ngFor="let answer of currentPoll.answers" class="answer">
+        <span>
+          <strong>{{answer.content}}</strong> -
+          <strong>{{answer.votes}}</strong> votes</span>
+      </div>
+    </div>
+  </div>
+</div>

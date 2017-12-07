@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject';
 
@@ -47,6 +47,24 @@ export class AuthService {
     }
 
     this.username.next(undefined)
+    return false
+  }
+
+  isAdmin() : boolean {
+    if (!this.isLogged) {
+      return false
+    }
+
+    let currentLoggedUserRoles : Array<string> = JSON.parse(localStorage.getItem('userRoles'))
+
+    if (currentLoggedUserRoles === null) {
+      return false
+    }
+    
+    if (currentLoggedUserRoles.indexOf('Admin') > -1) {
+      return true
+    }
+
     return false
   }
 

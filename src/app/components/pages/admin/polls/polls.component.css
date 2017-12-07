@@ -1,0 +1,30 @@
+h2 {
+  text-align: center;
+  text-decoration: underline;
+  color: #6b9ed4;
+}
+
+.poll {
+  border-bottom: 1px solid #6b9ed4;
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 1em;
+}
+
+.question {
+  font-weight: bold;
+  padding: 1em;
+}
+
+.answers {
+  padding: 0.5em;
+}
+
+.btn-save {
+  background-color: #6b9ed4;
+  padding: 0.5em;
+  border: 1px solid rgb(79, 117, 255);
+  border-radius: 7px;
+  cursor: pointer;
+}

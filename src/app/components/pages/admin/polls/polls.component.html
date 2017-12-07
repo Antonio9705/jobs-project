@@ -1,0 +1,7 @@
+<h2>Polls</h2>
+<div *ngFor="let poll of polls" class="poll">
+  <div class="question">{{poll.question}}</div>
+  <div *ngFor="let answer of poll.answers" class="answers">{{answer.content}} - {{answer.votes}} vote/s</div>
+  <button (click)="savePoll(poll)" class="btn-save">Save</button>
+</div>
+<create-poll-form (pollEvent)="getNewPoll($event)"></create-poll-form>

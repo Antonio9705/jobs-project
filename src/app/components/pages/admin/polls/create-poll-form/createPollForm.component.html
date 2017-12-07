@@ -1,0 +1,14 @@
+<form #pollForm="ngForm" (ngSubmit)="onSubmit()">
+  <label for="question">Question</label>
+  <input type="text" name="question" [(ngModel)]="question" id="question">
+  <div>
+    <label for="answersCount">Answers Count</label>
+    <input type="number" name="answersCount" [(ngModel)]="answersCount" id="answersCount">
+  </div>
+  <div *ngFor="let count of createRange(answersCount)">
+    <label for="answer{{count}}">Answer {{count}}</label>
+    <input type="text" name="answer{{count}}" [(ngModel)]="answers[count-1]">
+  </div>
+
+  <input type="submit" value="Create">
+</form>
