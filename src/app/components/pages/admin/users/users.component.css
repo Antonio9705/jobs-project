@@ -1,0 +1,34 @@
+table {
+  margin: 0 auto;
+  background-color: rgb(191, 220, 255);
+}
+
+table th {
+  background-color: #A1C5D3;
+  border: 1px solid #6b9ed4;
+  padding: 0.5em;
+  font-size: 13px;
+}
+
+table td {
+  text-align: center;
+  border-bottom: 2px solid #6b9ed4;
+  border-right: 2px solid #6b9ed4;
+  padding-bottom: 0.8em;
+}
+
+.saveButton {
+  padding: 5px;
+  border: 1px solid #6b9ed4;
+  border-radius: 5px;
+  margin-top: 5px; 
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  background-color: rgb(191, 220, 255);
+}
+
+.roles {
+  background-color: rgb(191, 220, 255);
+}

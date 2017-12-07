@@ -11,7 +11,15 @@ export class AdminService {
   constructor(private http : HttpClient) {}
 
   allUsers() : Observable<User[]> {
-    return this.http.get<User[]>(this.url + '/allUsers', {
+    return this.http.get<User[]>(this.url + '/user/all', {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
+  changeRole(payload) : Observable<any> {
+    return this.http.post<any>(this.url + '/user/changeRole', payload, {
       headers: {
         'Content-Type': 'application/json'
       }

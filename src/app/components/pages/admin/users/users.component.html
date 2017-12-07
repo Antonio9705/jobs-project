@@ -1,1 +1,25 @@
-<h1>here</h1>
+<table>
+  <thead>
+    <th>Username</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>E-mail</th>
+    <th>Role</th>
+    <th>Action</th>
+  </thead>
+  <tbody *ngIf="allUsers">
+    <tr *ngFor="let user of allUsers">
+        <td>{{user.username}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <select class="roles" (change)="onChange(selectField.value, user._id)" #selectField>
+            <option *ngFor="let role of roles">{{role}}</option>
+          </select>
+        </td>
+        <td><button class="saveButton" (click)="changeUserRole(user._id)">Save</button></td>
+    </tr>
+
+  </tbody>
+</table>
