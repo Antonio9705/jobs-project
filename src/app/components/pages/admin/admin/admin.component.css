@@ -1,18 +1,31 @@
 ul {
   margin: 0 auto;
   padding: 0;
-  width: 50%;
+  width: 100%;
   text-align: center;
+  list-style-type: none;
+}
+
+ul li:hover {
+  background-color: #ffffff;
 }
 
 ul li {
   display: block;
+  background-color: #A1C5D3;
   padding: 1em;
   font-weight: bold;
-  text-decoration: underline;
   font-size: 1.5em;
+  border-right: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+ul li:first-child {
+  border-top: 1px solid #000000;
 }
 
 ul li a {
   color: #000000;
+  text-decoration: none;
 }

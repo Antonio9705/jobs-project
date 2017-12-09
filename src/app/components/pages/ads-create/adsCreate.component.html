@@ -2,7 +2,7 @@
 <div class="create-ad">
   <form method="POST" (ngSubmit)="onSubmit($event)" #adForm="ngForm">
     <label for="category">Category</label>
-    <select id="category">
+    <select name="category" [(ngModel)]="ad.category">
       <option *ngFor="let category of categories" [value]="category.categoryName">{{category.categoryName}}</option>      
     </select>
 

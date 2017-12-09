@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs/Subject'
+import { headersWithoutAuthorization, baseUrl } from './../config/config'
 
 @Injectable()
 export class AuthService {
-  url: string = 'http://localhost:3000'
   private username: Subject<string> = new Subject<string>()
 
   constructor(private http : HttpClient) {}
@@ -15,10 +15,8 @@ export class AuthService {
   }
 
   register(user) : Observable<any> {
-    return this.http.post(this.url + '/register', user, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    return this.http.post(baseUrl + '/register', user, {
+      headers: headersWithoutAuthorization
     })
   }
 
@@ -28,16 +26,14 @@ export class AuthService {
       password
     }
     
-    return this.http.post(this.url + '/login', user, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    return this.http.post(baseUrl + '/login', user, {
+      headers: headersWithoutAuthorization
     })
   }
 
   logout() {
     sessionStorage.clear()
-    return this.http.post(this.url + '/logout', null)
+    return this.http.post(baseUrl + '/logout', null)
   }
 
   isLogged() : boolean {

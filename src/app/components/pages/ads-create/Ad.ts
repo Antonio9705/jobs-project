@@ -1,11 +1,12 @@
 export class Ad {
-  constructor(
-    public position: string,
-    public location: string,
-    public workType: string,
-    public aboutFirm: string,
-    public content: string,
-    public publisher: string,
-    public createdDate: Date
-  ) { }
+  position: string
+  location: string
+  workType: string
+  aboutFirm: string
+  category: string
+  content: string
+  publisher: string
+  createdDate: Date
+
+  constructor() {}
 }

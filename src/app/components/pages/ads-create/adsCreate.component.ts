@@ -21,7 +21,7 @@ export class AdsCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.ad = new Ad('', '', '', '', '', '', new Date())
+    this.ad = new Ad()
   }
 
   onSubmit() {

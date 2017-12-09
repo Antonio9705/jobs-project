@@ -3,11 +3,11 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 import { ToastrService } from 'toastr-ng2';
-import { Category } from '../components/pages/admin/category/Category';
+import { Category } from '../components/pages/admin/category/Category'
+import { headersWithAuthorization, headersWithoutAuthorization, baseUrl } from './../config/config'
 
 @Injectable()
 export class CategoryService {
-  url: string = 'http://localhost:3000'
   private categories: Subject<Category[]> = new Subject<Category[]>()
 
   constructor(
@@ -20,11 +20,8 @@ export class CategoryService {
   }
 
   createCateogory(categoryName) : void {
-    this.http.post(this.url + "/category/create", {categoryName}, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
-      }
+    this.http.post(baseUrl + "/category/create", {categoryName}, {
+      headers: headersWithAuthorization
     }).subscribe((data : any)  => {
       if (data.success) {
         this.toastr.success(data.message)
@@ -36,10 +33,8 @@ export class CategoryService {
   }
 
   listCategories() : void {
-    this.http.get(this.url + "/category/all", {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    this.http.get(baseUrl + "/category/all", {
+      headers: headersWithoutAuthorization
     }).subscribe((data : any) => {
       if (data.success) {
         this.categories.next(data.categories)

@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject';
-import { Poll } from '../components/poll/Poll';
+import { Poll } from '../components/poll/Poll'
 import { AuthService } from './auth.service'
+import { headersWithAuthorization, headersWithoutAuthorization, baseUrl } from './../config/config'
 
 @Injectable()
 export class PollService {
-  url: string = 'http://localhost:3000';
   private pollSubject: Subject<Poll> = new Subject<Poll>()
 
   constructor(
@@ -28,11 +28,8 @@ export class PollService {
   }
 
   makeActive(poll) : void {
-    this.http.post<any>(this.url + '/poll/makeActive', poll, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
-      }
+    this.http.post<any>(baseUrl + '/poll/makeActive', poll, {
+      headers: headersWithAuthorization
     }).subscribe(data => {
       this.pollSubject.next(data.poll)
     })
@@ -52,28 +49,20 @@ export class PollService {
   }
 
   pollList(): Observable<Poll[]> {
-    return this.http.get<Array<Poll>>(this.url + '/polls', {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    return this.http.get<Array<Poll>>(baseUrl + '/polls', {
+      headers: headersWithoutAuthorization
     })
   }
 
   createPoll(poll : Object) : Observable<any> {
-    return this.http.post(this.url + '/poll/create', poll, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
-      }
+    return this.http.post(baseUrl + '/poll/create', poll, {
+      headers: headersWithAuthorization
     })
   }
 
   createVote(payload) : void {
-    this.http.post(this.url + '/poll/vote', payload, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
-      }
+    this.http.post(baseUrl + '/poll/vote', payload, {
+      headers: headersWithAuthorization
     }).subscribe(data => {
       this.getActivePoll()
     })

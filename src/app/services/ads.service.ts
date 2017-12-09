@@ -3,27 +3,22 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 import { ToastrService } from 'toastr-ng2';
-import { Category } from '../components/pages/admin/category/Category';
+import { Category } from '../components/pages/admin/category/Category'
+import { headersWithAuthorization, baseUrl } from './../config/config'
+import { Ad } from '../components/pages/ads-create/Ad'
 
 @Injectable()
 export class AdsService {
-  url: string = 'http://localhost:3000'
-  private categories: Subject<Category[]> = new Subject<Category[]>()
+  private ads : Subject<Ad[]> = new Subject<Ad[]>()
 
   constructor(
     private http : HttpClient,
     private toastr: ToastrService
   ) {}
-  
-  getAds() {
-    
-  }
 
-  createAd(ad) {
-    this.http.post(this.url + "/ads/create", ad, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+  createAd(ad) : void {
+    this.http.post(baseUrl + "/ads/create", ad, {
+      headers: headersWithAuthorization
     }).subscribe((data : any) => {
       if (data.success) {
         this.toastr.success(data.message)
