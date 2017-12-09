@@ -3,12 +3,17 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 import { headersWithoutAuthorization, baseUrl } from './../config/config'
+import { ToastrService } from 'toastr-ng2'
 
 @Injectable()
 export class AuthService {
+  private token: string
   private username: Subject<string> = new Subject<string>()
 
-  constructor(private http : HttpClient) {}
+  constructor(
+    private http : HttpClient,
+    private toastr: ToastrService
+  ) {}
 
   changeUsername() : Observable<string> {
     return this.username.asObservable()
@@ -31,9 +36,11 @@ export class AuthService {
     })
   }
 
-  logout() {
+  logout() : void {
     sessionStorage.clear()
-    return this.http.post(baseUrl + '/logout', null)
+    this.token = undefined
+    this.http.post(baseUrl + '/logout', null)
+    this.toastr.success('GoodBye!')
   }
 
   isLogged() : boolean {
@@ -65,6 +72,7 @@ export class AuthService {
   }
 
   saveData(data) : void {
+    this.token = data.user.token
     sessionStorage.setItem('username', data.user.username)
     sessionStorage.setItem('firstName', data.user.firstName)
     sessionStorage.setItem('token', data.user.token)

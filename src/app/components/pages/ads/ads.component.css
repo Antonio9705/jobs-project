@@ -1,0 +1,31 @@
+.ads {
+  margin: 0 auto;
+  font-size: 16px;
+  width: 100%;
+}
+
+.ad {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul li {
+  display: inline-block;
+  padding-right: 1em;
+  margin-top: 1em;
+}
+
+ul li a {
+  display: block;
+  cursor: pointer;
+}
+
+ul li a:hover {
+  color: #979797;
+}

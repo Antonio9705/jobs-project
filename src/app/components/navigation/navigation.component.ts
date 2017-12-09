@@ -8,13 +8,16 @@ import { Router } from '@angular/router'
   styleUrls: [ './navigation.component.css' ]
 })
 export class NavigationComponent implements OnInit {
-  authService: AuthService;
-  router: Router
+  private authService: AuthService;
+  private router: Router
   username: string;
 
-  constructor(authService: AuthService, router: Router) {
+  constructor(
+    authService: AuthService, 
+    router: Router
+  ) {
     this.authService = authService;
-    this.router = router;    
+    this.router = router;  
   }
 
   ngOnInit(): void {

@@ -1,4 +1,3 @@
-
 <div class="create-ad">
   <form method="POST" (ngSubmit)="onSubmit($event)" #adForm="ngForm">
     <label for="category">Category</label>
@@ -14,6 +13,9 @@
 
     <label for="workType">Work Type</label>
     <input type="text" name="workType" [(ngModel)]="ad.workType" id="workType">
+
+    <label for="firmName">Firm Name</label>
+    <input type="text" name="firmName" [(ngModel)]="ad.firmName" id="firmName">
 
     <label for="aboutFirm">About Firm</label>
     <textarea class="area" name="aboutFirm" [(ngModel)]="ad.aboutFirm" id="aboutFirm"></textarea>

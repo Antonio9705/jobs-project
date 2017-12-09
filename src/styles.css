@@ -1,4 +1,4 @@
-@import './../node_modules/toastr-ng2/toastr.css';
+@import './toastr.css';
 
 body {
   background-color: rgb(213, 230, 252);
