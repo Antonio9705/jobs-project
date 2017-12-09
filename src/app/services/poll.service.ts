@@ -20,7 +20,7 @@ export class PollService {
       return false
     }
 
-    if (poll.votedUsers.indexOf(localStorage.getItem('userId')) > -1) {
+    if (poll.votedUsers.indexOf(sessionStorage.getItem('userId')) > -1) {
       return true
     }
 
@@ -30,7 +30,8 @@ export class PollService {
   makeActive(poll) : void {
     this.http.post<any>(this.url + '/poll/makeActive', poll, {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
       }
     }).subscribe(data => {
       this.pollSubject.next(data.poll)
@@ -61,7 +62,8 @@ export class PollService {
   createPoll(poll : Object) : Observable<any> {
     return this.http.post(this.url + '/poll/create', poll, {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
       }
     })
   }
@@ -69,7 +71,8 @@ export class PollService {
   createVote(payload) : void {
     this.http.post(this.url + '/poll/vote', payload, {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
       }
     }).subscribe(data => {
       this.getActivePoll()

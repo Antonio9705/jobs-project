@@ -17,6 +17,8 @@ import { AuthService } from './services/auth.service'
 import { PollService } from './services/poll.service'
 import { ToastrService } from 'toastr-ng2'
 import { AuthGuard } from './services/guard.service'
+import { AdsService } from './services/ads.service'
+import { CategoryService } from './services/category.service'
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { AuthGuard } from './services/guard.service'
     BrowserAnimationsModule,
     FormsModule
   ],
-  providers: [ToastrService, AuthService, PollService, AuthGuard],
+  providers: [ToastrService, AuthService, PollService, AuthGuard, AdsService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

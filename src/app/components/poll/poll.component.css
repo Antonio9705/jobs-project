@@ -7,13 +7,19 @@ p {
 }
 
 .poll {
-  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.answer {
+  margin-top: 0.5em;
 }
 
 .vote-button {
   background-color: #6b9ed4;
   padding: 0.5em;
   margin-top: 0.5em;
+  margin-left: 0.5em;
   border: 1px solid rgb(79, 117, 255);
   border-radius: 7px;
   cursor: pointer;

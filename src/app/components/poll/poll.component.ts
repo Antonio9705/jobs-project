@@ -31,7 +31,7 @@ export class PollComponent implements OnInit {
 
     this.pollService.createVote({
       id: this.currentPoll._id, 
-      userId: localStorage.getItem('userId'), 
+      userId: sessionStorage.getItem('userId'), 
       answer: this.answerText
     })
   }

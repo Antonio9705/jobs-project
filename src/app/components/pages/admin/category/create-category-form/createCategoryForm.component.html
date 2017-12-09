@@ -1,0 +1,7 @@
+<div class="category-form">
+  <form method="POST" (ngSubmit)="onSubmit($event)" #createCategoryForm>
+    <label for="categoryName">Category Name</label>
+    <input type="text" name="categoryName" [(ngModel)]="categoryName" id="categoryName"> 
+    <input type="submit" value="Create">
+  </form>
+</div>

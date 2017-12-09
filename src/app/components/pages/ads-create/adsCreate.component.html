@@ -1,0 +1,26 @@
+
+<div class="create-ad">
+  <form method="POST" (ngSubmit)="onSubmit($event)" #adForm="ngForm">
+    <label for="category">Category</label>
+    <select id="category">
+      <option *ngFor="let category of categories" [value]="category.categoryName">{{category.categoryName}}</option>      
+    </select>
+
+    <label for="position">Position</label>
+    <input type="text" name="position" [(ngModel)]="ad.position" id="position">
+
+    <label for="location">Location</label>
+    <input type="text" name="location" [(ngModel)]="ad.location" id="location">
+
+    <label for="workType">Work Type</label>
+    <input type="text" name="workType" [(ngModel)]="ad.workType" id="workType">
+
+    <label for="aboutFirm">About Firm</label>
+    <textarea class="area" name="aboutFirm" [(ngModel)]="ad.aboutFirm" id="aboutFirm"></textarea>
+
+    <label for="content">Content</label>
+    <textarea class="area" name="content" [(ngModel)]="ad.content" id="content"></textarea>
+
+    <input type="submit" value="Create">
+  </form>
+</div>

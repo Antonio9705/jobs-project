@@ -36,13 +36,13 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear()
+    sessionStorage.clear()
     return this.http.post(this.url + '/logout', null)
   }
 
   isLogged() : boolean {
-    if (localStorage.getItem('token')) {
-      this.username.next(localStorage.getItem('username'))
+    if (sessionStorage.getItem('token')) {
+      this.username.next(sessionStorage.getItem('username'))
       return true
     }
 
@@ -55,7 +55,7 @@ export class AuthService {
       return false
     }
 
-    let currentLoggedUserRoles : Array<string> = JSON.parse(localStorage.getItem('userRoles'))
+    let currentLoggedUserRoles : Array<string> = JSON.parse(sessionStorage.getItem('userRoles'))
 
     if (currentLoggedUserRoles === null) {
       return false
@@ -69,10 +69,10 @@ export class AuthService {
   }
 
   saveData(data) : void {
-    localStorage.setItem('username', data.user.username)
-    localStorage.setItem('firstName', data.user.firstName)
-    localStorage.setItem('token', data.user.token)
-    localStorage.setItem('userId', data.user.userId)
-    localStorage.setItem('userRoles', JSON.stringify(data.user.userRoles))
+    sessionStorage.setItem('username', data.user.username)
+    sessionStorage.setItem('firstName', data.user.firstName)
+    sessionStorage.setItem('token', data.user.token)
+    sessionStorage.setItem('userId', data.user.userId)
+    sessionStorage.setItem('userRoles', JSON.stringify(data.user.userRoles))
   }
 }
