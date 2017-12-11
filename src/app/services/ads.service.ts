@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-import { ToastrService } from 'toastr-ng2';
+import { ToastrService } from 'toastr-ng2'
+import { Location } from '@angular/common'
+import { Router } from '@angular/router'
 import { Category } from '../components/pages/admin/category/Category'
 import { baseUrl } from './../config/config'
 import { Ad } from '../components/pages/ads-create/Ad'
@@ -13,7 +15,9 @@ export class AdsService {
 
   constructor(
     private http : HttpClient,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
+    private location : Location
   ) {}
 
   getAds() : Observable<Ad[]> {
@@ -49,12 +53,42 @@ export class AdsService {
     return dateA > dateB ? -1 : 1
   }
 
-  deleteAd(id) : Observable<any> {
-    return this.http.delete(baseUrl + `/ads/delete/${id}`, {
+  editAd(ad : Ad) : void {
+    this.http.put(baseUrl + "/ads/edit", ad, {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
+    }).subscribe((data: any) => {
+      if (data.success) {
+        this.toastr.success(data.message)
+        this.listAds()
+        this.router.navigate[ 'ads' ]
+      } else {
+        this.toastr.error(data.message)
       }
     })
+  }
+
+  deleteAd(id) : void {
+    this.http.delete(baseUrl + `/ads/delete/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
+    }).subscribe((data : any) => {
+      if (data.success) {
+        this.toastr.success('Delete success.')
+        this.listAds()
+        this.router.navigate[ 'ads' ]
+      } else {
+        this.toastr.error('Error')
+      }
+    })
+  }
+
+  returnLastPage() {
+    this.location.back()
   }
 
   createAd(ad) : void {

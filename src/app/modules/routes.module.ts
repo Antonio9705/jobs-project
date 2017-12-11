@@ -13,6 +13,8 @@ import { AdsComponent } from '../components/pages/ads/ads.component'
 import { AdsCreateComponent } from '../components/pages/ads-create/adsCreate.component'
 import { CategoryComponent } from '../components/pages/admin/category/category.component'
 import { AdDetailsComponent } from '../components/pages/ad-details/adDetails.component'
+import { AdDeleteComponent } from '../components/pages/ad-delete/adDelete.component'
+import { AdEditComponent } from '../components/pages/ad-edit/adEdit.component'
 
 //guards
 import { AuthGuard } from './../services/guard.service'
@@ -25,7 +27,9 @@ const routes: Routes = [
     path: 'ads', children: [
       { path: '', component: AdsComponent },
       { path: 'create', component: AdsCreateComponent },
-      { path: 'details/:id', component: AdDetailsComponent }
+      { path: 'details/:id', component: AdDetailsComponent },
+      { path: 'delete/:id', component: AdDeleteComponent },
+      { path: 'edit/:id', component: AdEditComponent }
     ]
   },
   {

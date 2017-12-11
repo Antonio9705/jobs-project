@@ -1,0 +1,30 @@
+<h2>Edit Ad</h2>
+<form *ngIf="ad" method="POST" (ngSubmit)="onSubmit()" #adEditForm="ngForm">
+  <label for="category">Category</label>
+  <select name="category" [(ngModel)]="ad.category">
+    <option *ngFor="let category of categories" [value]="category.categoryName">{{category.categoryName}}</option>
+  </select>
+
+  <label for="position">Position</label>
+  <input type="text" name="position" [(ngModel)]="ad.position" id="position">
+
+  <label for="location">Location</label>
+  <input type="text" name="location" [(ngModel)]="ad.location" id="location">
+
+  <label for="workType">Work Type</label>
+  <input type="text" name="workType" [(ngModel)]="ad.workType" id="workType">
+
+  <label for="firmName">Firm Name</label>
+  <input type="text" name="firmName" [(ngModel)]="ad.firmName" id="firmName">
+
+  <label for="aboutFirm">About Firm</label>
+  <textarea class="area" name="aboutFirm" [(ngModel)]="ad.aboutFirm" id="aboutFirm"></textarea>
+
+  <label for="content">Content</label>
+  <textarea class="area" name="content" [(ngModel)]="ad.content" id="content"></textarea>
+
+  <div class="editButtons">
+    <input type="button" (click)="returnLastPage()" value="Cancel">
+    <input type="submit" value="Edit">
+  </div>
+</form>

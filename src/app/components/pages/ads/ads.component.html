@@ -12,7 +12,8 @@
       <td class="firmName">{{ad.firmName}}</td>
       <td class="added">{{ad.createdDate | date: 'dd/MM/yyyy'}}</td>
       <td *ngIf="currentUserId === ad.publisher">
-          <button (click)="deleteAd(ad)">&#10006;</button>
+          <a [routerLink]="['/ads/delete', ad._id]"><button>&#10006;</button></a>
+          <a [routerLink]="['/ads/edit', ad._id]"><button>&#9998;</button></a>
       </td>
     </tr>
   </tbody>

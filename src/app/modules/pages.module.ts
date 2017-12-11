@@ -11,6 +11,8 @@ import { AdsComponent } from './../components/pages/ads/ads.component'
 import { AdsCreateComponent } from '../components/pages/ads-create/adsCreate.component'
 import { AdDetailsComponent } from '../components/pages/ad-details/adDetails.component'
 import { NotFoundComponent } from './../components/pages/notFound/notFound.component'
+import { AdDeleteComponent } from '../components/pages/ad-delete/adDelete.component'
+import { AdEditComponent } from '../components/pages/ad-edit/adEdit.component'
 
 @NgModule({
   imports: [ CommonModule, FormsModule, AppRoutesModule ],
@@ -21,6 +23,8 @@ import { NotFoundComponent } from './../components/pages/notFound/notFound.compo
     AdsComponent,
     AdsCreateComponent,
     AdDetailsComponent,
+    AdDeleteComponent,
+    AdEditComponent,
     NotFoundComponent
   ],
   providers: [],
