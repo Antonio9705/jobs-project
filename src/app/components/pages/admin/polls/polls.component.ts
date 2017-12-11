@@ -29,4 +29,13 @@ export class PollsComponent implements OnInit {
   savePoll(poll) {
     this.pollService.makeActive(poll)
   }
+
+  deletePoll(poll) {
+    this.pollService.deletePoll(poll).subscribe((data : any) => {
+      if (data.success) {
+        this.polls.splice(this.polls.indexOf(poll), 1)
+        this.toastr.success('Deleted success.')
+      }
+    })
+  }
 }

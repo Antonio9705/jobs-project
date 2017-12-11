@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject';
 import { Poll } from '../components/poll/Poll'
 import { AuthService } from './auth.service'
-import { headersWithAuthorization, headersWithoutAuthorization, baseUrl } from './../config/config'
+import { baseUrl } from './../config/config'
 
 @Injectable()
 export class PollService {
@@ -29,9 +29,21 @@ export class PollService {
 
   makeActive(poll) : void {
     this.http.post<any>(baseUrl + '/poll/makeActive', poll, {
-      headers: headersWithAuthorization
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
     }).subscribe(data => {
       this.pollSubject.next(data.poll)
+    })
+  }
+
+  deletePoll(poll) : Observable<Object> {
+    return this.http.delete(baseUrl + `/poll/delete/${poll._id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
     })
   }
 
@@ -50,19 +62,27 @@ export class PollService {
 
   pollList(): Observable<Poll[]> {
     return this.http.get<Array<Poll>>(baseUrl + '/polls', {
-      headers: headersWithoutAuthorization
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
   }
 
   createPoll(poll : Object) : Observable<any> {
     return this.http.post(baseUrl + '/poll/create', poll, {
-      headers: headersWithAuthorization
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
     })
   }
 
   createVote(payload) : void {
     this.http.post(baseUrl + '/poll/vote', payload, {
-      headers: headersWithAuthorization
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
     }).subscribe(data => {
       this.getActivePoll()
     })

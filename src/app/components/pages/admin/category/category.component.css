@@ -1,3 +1,20 @@
 h2 {
   text-align: center;
 }
+
+ul {
+  border: 1px solid black;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-weight: bold;
+}
+
+ul li {
+  padding: 0.6em;
+}
+
+.btn-delete {
+  padding: 5px;
+}

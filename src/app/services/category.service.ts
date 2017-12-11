@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 import { ToastrService } from 'toastr-ng2';
 import { Category } from '../components/pages/admin/category/Category'
-import { headersWithAuthorization, headersWithoutAuthorization, baseUrl } from './../config/config'
+import { baseUrl } from './../config/config'
 
 @Injectable()
 export class CategoryService {
@@ -21,7 +21,10 @@ export class CategoryService {
 
   createCateogory(categoryName) : void {
     this.http.post(baseUrl + "/category/create", {categoryName}, {
-      headers: headersWithAuthorization
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
     }).subscribe((data : any)  => {
       if (data.success) {
         this.toastr.success(data.message)
@@ -32,9 +35,20 @@ export class CategoryService {
     })
   }
 
+  deleteCategory(id) : Observable<any> {
+    return this.http.delete(baseUrl + `/category/delete/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
+    })
+  }
+
   listCategories() : void {
     this.http.get(baseUrl + "/category/all", {
-      headers: headersWithoutAuthorization
+      headers: {
+        'Content-Type': 'application/json'
+      }
     }).subscribe((data : any) => {
       if (data.success) {
         this.categories.next(data.categories)

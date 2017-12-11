@@ -23,9 +23,10 @@ export class AdsCreateComponent implements OnInit {
   ngOnInit(): void {
     this.ad = new Ad()
   }
-
+  
   onSubmit() {
     this.ad.publisher = sessionStorage.getItem('userId')
+    this.ad.createdDate = new Date(Date.now())
     this.adsService.createAd(this.ad)
   }
 }

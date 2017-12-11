@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-import { headersWithoutAuthorization, baseUrl } from './../config/config'
+import { baseUrl } from './../config/config'
 import { ToastrService } from 'toastr-ng2'
 
 @Injectable()
@@ -21,7 +21,9 @@ export class AuthService {
 
   register(user) : Observable<any> {
     return this.http.post(baseUrl + '/register', user, {
-      headers: headersWithoutAuthorization
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
   }
 
@@ -32,7 +34,9 @@ export class AuthService {
     }
     
     return this.http.post(baseUrl + '/login', user, {
-      headers: headersWithoutAuthorization
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
   }
 

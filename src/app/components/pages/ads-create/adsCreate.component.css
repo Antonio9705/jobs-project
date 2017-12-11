@@ -18,6 +18,10 @@ input[type=text] {
 }
 
 input[type=submit] {
-  margin-top: 0.2em;
+  margin-top: 0.5em;
   cursor: pointer;
 }
+input[type='file'] {
+  width: 114px;
+  margin: 0 auto;
+ }

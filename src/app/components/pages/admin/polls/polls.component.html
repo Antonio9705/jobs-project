@@ -3,5 +3,6 @@
   <div class="question">{{poll.question}}</div>
   <div *ngFor="let answer of poll.answers" class="answers">{{answer.content}} - {{answer.votes}} vote/s</div>
   <button (click)="savePoll(poll)" class="btn-save">Save</button>
+  <button (click)="deletePoll(poll)" class="btn-delete">Delete</button>
 </div>
 <create-poll-form (pollEvent)="getNewPoll($event)"></create-poll-form>

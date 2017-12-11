@@ -7,10 +7,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let ad of pagedItems" class="ad">
-      <td class="ad-title"><a href="#">{{ad.position}}</a></td>
-      <td class="location">{{ad.location}}</td>
+      <td class="ad-title"><a [routerLink]="['/ads/details', ad._id]">{{ad.position}}</a></td>
+      <td class="location">{{ad.location}}</td> 
       <td class="firmName">{{ad.firmName}}</td>
       <td class="added">{{ad.createdDate | date: 'dd/MM/yyyy'}}</td>
+      <td *ngIf="currentUserId === ad.publisher">
+          <button (click)="deleteAd(ad)">&#10006;</button>
+      </td>
     </tr>
   </tbody>
 </table>

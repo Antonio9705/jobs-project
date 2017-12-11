@@ -1,2 +1,9 @@
+<h2>All Categories</h2>
+<ul>
+  <li *ngFor="let category of categories">
+    {{category.categoryName}} - <button class="btn-delete" (click)="deleteCategory(category)">Delete</button>
+  </li>
+</ul>
+
 <h2>Create Category</h2>
 <create-category-form></create-category-form>

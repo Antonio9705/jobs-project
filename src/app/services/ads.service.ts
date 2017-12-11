@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 import { ToastrService } from 'toastr-ng2';
 import { Category } from '../components/pages/admin/category/Category'
-import { headersWithAuthorization, baseUrl } from './../config/config'
+import { baseUrl } from './../config/config'
 import { Ad } from '../components/pages/ads-create/Ad'
 
 @Injectable()
@@ -20,8 +20,20 @@ export class AdsService {
     return this.ads.asObservable()
   }
 
+  getById(id) : Observable<Ad> {
+    return this.http.get<Ad>(baseUrl + `/ads/${id}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
   listAds() : void {
-    this.http.get<Ad[]>(baseUrl + "/ads/all")
+    this.http.get<Ad[]>(baseUrl + "/ads/all", {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
       .subscribe((data : any) => {
         if (data.ads) {
           let ads = data.ads.sort(this.sortFunction)
@@ -37,9 +49,20 @@ export class AdsService {
     return dateA > dateB ? -1 : 1
   }
 
+  deleteAd(id) : Observable<any> {
+    return this.http.delete(baseUrl + `/ads/delete/${id}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
   createAd(ad) : void {
     this.http.post(baseUrl + "/ads/create", ad, {
-      headers: headersWithAuthorization
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + sessionStorage.getItem('token')
+      }
     }).subscribe((data : any) => {
       if (data.success) {
         this.toastr.success(data.message)
