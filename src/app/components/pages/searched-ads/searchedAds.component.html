@@ -1,0 +1,38 @@
+<table cellPadding="10" class="ads">
+  <thead>
+    <th>Position</th>
+    <th>Location</th>
+    <th>Firm</th>
+    <th>Added</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ad of pagedItems" class="ad">
+      <td class="ad-title"><a [routerLink]="['/ads/details', ad._id]">{{ad.position}}</a></td>
+      <td class="location">{{ad.location}}</td> 
+      <td class="firmName">{{ad.firmName}}</td>
+      <td class="added">{{ad.createdDate | date: 'dd/MM/yyyy'}}</td>
+      <td *ngIf="currentUserId === ad.publisher">
+          <a [routerLink]="['/ads/delete', ad._id]"><button>&#10006;</button></a>
+          <a [routerLink]="['/ads/edit', ad._id]"><button>&#9998;</button></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Last</a>
+    </li>
+</ul>

@@ -1,0 +1,26 @@
+<div class="search">
+  <form method="POST" (ngSubmit)="onSubmit()" #searchForm="ngForm">
+    <label for="category">Category</label>
+    <select name="category" [(ngModel)]="searchedAd.category">
+      <option *ngFor="let category of categories">{{category}}</option>      
+    </select>
+
+    <label for="position">Keywords</label>
+    <input type="text" name="keywords" [(ngModel)]="searchedAd.keywords" id="keywords">
+
+    <label for="location">Location</label>
+    <input type="text" name="location" [(ngModel)]="searchedAd.location" id="location">
+
+    <label for="workType">Work Type</label>
+    <select name="workType" [(ngModel)]="searchedAd.workType">
+      <option *ngFor="let type of workTypes" [value]="type">{{type}}</option>  
+    </select>
+
+    <label for="salary">Salary<br /> (In bulgarian valute)</label>
+    <select name="searchedSalary" [(ngModel)]="searchedAd.salary">
+      <option *ngFor="let salary of salaries" [value]="salary">{{salary}}</option>  
+    </select>
+
+    <input type="submit" value="Search">
+  </form>
+</div>

@@ -13,6 +13,8 @@ import { AdDetailsComponent } from '../components/pages/ad-details/adDetails.com
 import { NotFoundComponent } from './../components/pages/notFound/notFound.component'
 import { AdDeleteComponent } from '../components/pages/ad-delete/adDelete.component'
 import { AdEditComponent } from '../components/pages/ad-edit/adEdit.component'
+import { SearchComponent } from './../components/search/search.component'
+import { SearchedAdsComponent } from '../components/pages/searched-ads/searchedAds.component'
 
 @NgModule({
   imports: [ CommonModule, FormsModule, AppRoutesModule ],
@@ -25,6 +27,8 @@ import { AdEditComponent } from '../components/pages/ad-edit/adEdit.component'
     AdDetailsComponent,
     AdDeleteComponent,
     AdEditComponent,
+    SearchComponent,
+    SearchedAdsComponent,
     NotFoundComponent
   ],
   providers: [],

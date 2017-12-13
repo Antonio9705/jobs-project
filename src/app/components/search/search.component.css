@@ -1,0 +1,7 @@
+input[type=submit] {
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: aliceblue;
+}

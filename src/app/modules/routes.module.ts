@@ -15,6 +15,7 @@ import { CategoryComponent } from '../components/pages/admin/category/category.c
 import { AdDetailsComponent } from '../components/pages/ad-details/adDetails.component'
 import { AdDeleteComponent } from '../components/pages/ad-delete/adDelete.component'
 import { AdEditComponent } from '../components/pages/ad-edit/adEdit.component'
+import { SearchedAdsComponent } from '../components/pages/searched-ads/searchedAds.component'
 
 //guards
 import { AuthGuard } from './../services/guard.service'
@@ -23,6 +24,11 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  {
+    path: 'search', children: [
+      { path: '', component: SearchedAdsComponent }
+    ]
+  },
   {
     path: 'ads', children: [
       { path: '', component: AdsComponent },

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
+import { Router } from '@angular/router'
 import { ToastrService } from 'toastr-ng2'
 import { Location } from '@angular/common'
-import { Router } from '@angular/router'
 import { Category } from '../components/pages/admin/category/Category'
 import { baseUrl } from './../config/config'
 import { Ad } from '../components/pages/ads-create/Ad'
@@ -16,8 +16,8 @@ export class AdsService {
   constructor(
     private http : HttpClient,
     private toastr: ToastrService,
-    private router: Router,
-    private location : Location
+    private location : Location,
+    private router: Router
   ) {}
 
   getAds() : Observable<Ad[]> {
@@ -63,7 +63,6 @@ export class AdsService {
       if (data.success) {
         this.toastr.success(data.message)
         this.listAds()
-        this.router.navigate[ 'ads' ]
       } else {
         this.toastr.error(data.message)
       }
@@ -80,7 +79,6 @@ export class AdsService {
       if (data.success) {
         this.toastr.success('Delete success.')
         this.listAds()
-        this.router.navigate[ 'ads' ]
       } else {
         this.toastr.error('Error')
       }
@@ -101,6 +99,7 @@ export class AdsService {
       if (data.success) {
         this.toastr.success(data.message)
         this.listAds()
+        
       } else {
         this.toastr.error(data.message)
       }

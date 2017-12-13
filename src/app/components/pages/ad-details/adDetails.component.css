@@ -5,12 +5,16 @@
   border-right: 1px solid black;
 }
 
+.content:hover {
+  background-color: #ffffff;
+}
+
 .content:last-child {
   border-bottom: 1px solid black;
 }
 
-.position {
-  font-weight: bold;  
+span {
+  font-weight: bold;
 }
 
 .text {

@@ -52,6 +52,6 @@ export class AdsComponent implements OnInit {
 
     this.pagedItems = this.ads.slice(this.pager.startIndex, this.pager.endIndex + 1)
 
-    this.router.navigate(['/ads'], { queryParams: { 'page': page } })
+    this.router.navigate(['ads'], { queryParams: { 'page': page } })
   }
 }
