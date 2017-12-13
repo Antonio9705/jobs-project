@@ -9,11 +9,30 @@ import { ToastrService } from 'toastr-ng2'
 export class AuthService {
   private token: string
   private username: Subject<string> = new Subject<string>()
+  private countUserAds: Subject<string> = new Subject<string>()
 
   constructor(
     private http : HttpClient,
     private toastr: ToastrService
   ) {}
+
+  getLoggedUserInfo() : Observable<string> {
+    return this.countUserAds.asObservable()
+  }
+
+  loadLoggedUserInfo() : void {
+    this.http.get(baseUrl + `/user/info/${sessionStorage.getItem('userId')}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).subscribe((data: any) => {
+      if (data.success) {
+        this.countUserAds.next(`${data.counter}`)
+      } else {
+        this.countUserAds.next(undefined)
+      }
+    })
+  }
 
   changeUsername() : Observable<string> {
     return this.username.asObservable()
@@ -44,6 +63,7 @@ export class AuthService {
     sessionStorage.clear()
     this.token = undefined
     this.http.post(baseUrl + '/logout', null)
+    this.countUserAds.next(undefined)
     this.toastr.success('GoodBye!')
   }
 
@@ -82,5 +102,6 @@ export class AuthService {
     sessionStorage.setItem('token', data.user.token)
     sessionStorage.setItem('userId', data.user.userId)
     sessionStorage.setItem('userRoles', JSON.stringify(data.user.userRoles))
+    this.loadLoggedUserInfo()
   }
 }

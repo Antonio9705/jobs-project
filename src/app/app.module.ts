@@ -12,6 +12,7 @@ import { AppComponent } from './app.component'
 import { HeaderComponent } from './components/header/header.component'
 import { NavigationComponent } from './components/navigation/navigation.component'
 import { PollComponent } from './components/poll/poll.component'
+import { UserInfoComponent } from './components/user-info/userInfo.component'
 
 import { AuthService } from './services/auth.service' 
 import { PollService } from './services/poll.service'
@@ -26,7 +27,8 @@ import { PagerService } from './services/pager.service'
     AppComponent,
     HeaderComponent,
     NavigationComponent,
-    PollComponent
+    PollComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

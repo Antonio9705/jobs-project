@@ -4,6 +4,7 @@ import { AdsService } from '../../../services/ads.service'
 import { PagerService } from '../../../services/pager.service'
 import { Ad } from '../ads-create/Ad'
 import * as _ from 'underscore'
+import { AuthService } from '../../../services/auth.service'
 
 @Component({
   templateUrl: './ads.component.html',
@@ -14,15 +15,18 @@ export class AdsComponent implements OnInit {
   pager: any = {}
   pagedItems: Ad[]
   currentUserId: string
+  isHasPermission: boolean
 
   constructor(
     private adsService: AdsService,
     private pagerService: PagerService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.isHasPermission = this.authService.isAdmin()
     this.currentUserId = sessionStorage.getItem('userId')
     this.adsService.listAds()
     this.adsService.getAds().subscribe(data => {
@@ -51,7 +55,6 @@ export class AdsComponent implements OnInit {
     this.pager = this.pagerService.getPager(this.ads.length, page)
 
     this.pagedItems = this.ads.slice(this.pager.startIndex, this.pager.endIndex + 1)
-
     this.router.navigate(['ads'], { queryParams: { 'page': page } })
   }
 }

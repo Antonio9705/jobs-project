@@ -3,6 +3,7 @@
     <li><a routerLink="/">Home</a></li>
     <li><a routerLink="/ads">Ads</a></li>
     <li *ngIf="authService.isLogged()"><a routerLink="/ads/create">Create</a></li>
+    <li *ngIf="authService.isLogged()"><a routerLink="/ads/own">My Ads</a></li>
     <li *ngIf="!authService.isLogged()"><a routerLink="/login">Login</a></li>
     <li *ngIf="!authService.isLogged()"><a routerLink="/register">Register</a></li>
     <li *ngIf="authService.isAdmin()"><a routerLink="/admin">Admin</a></li>

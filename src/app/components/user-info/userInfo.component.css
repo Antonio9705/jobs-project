@@ -1,0 +1,17 @@
+a {
+  color: #6497f5;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(173, 173, 173);
+}
+
+.info {
+  text-align: center;
+}
+
+span {
+  font-weight: bold;
+  font-size: 14px;
+}

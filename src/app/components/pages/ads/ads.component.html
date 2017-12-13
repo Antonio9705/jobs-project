@@ -11,7 +11,7 @@
       <td class="location">{{ad.location}}</td> 
       <td class="firmName">{{ad.firmName}}</td>
       <td class="added">{{ad.createdDate | date: 'dd/MM/yyyy'}}</td>
-      <td *ngIf="currentUserId === ad.publisher">
+      <td *ngIf="currentUserId === ad.publisher || isHasPermission">
           <a [routerLink]="['/ads/delete', ad._id]"><button>&#10006;</button></a>
           <a [routerLink]="['/ads/edit', ad._id]"><button>&#9998;</button></a>
       </td>

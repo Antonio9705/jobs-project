@@ -76,6 +76,7 @@ form input {
 
 input[type=submit], input[type=button] {
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .btn-delete {
@@ -105,4 +106,19 @@ select {
   margin-bottom: 0.5em;
   font-size: 16px;
   background-color: rgb(213, 230, 252);
+}
+
+footer {
+  margin-top: 0.8em;
+  padding: 0.5em;
+  border: 1px solid #6b9ed4;
+  background-color: rgb(208, 231, 252);
+  text-align: right;
+  padding-right: 2em;
+}
+
+footer span {
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1px;
 }

@@ -8,6 +8,7 @@ import { Location } from '@angular/common'
 import { Category } from '../components/pages/admin/category/Category'
 import { baseUrl } from './../config/config'
 import { Ad } from '../components/pages/ads-create/Ad'
+import { AuthService } from './auth.service'
 
 @Injectable()
 export class AdsService {
@@ -17,7 +18,8 @@ export class AdsService {
     private http : HttpClient,
     private toastr: ToastrService,
     private location : Location,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   getAds() : Observable<Ad[]> {
@@ -79,6 +81,7 @@ export class AdsService {
       if (data.success) {
         this.toastr.success('Delete success.')
         this.listAds()
+        this.authService.loadLoggedUserInfo()
       } else {
         this.toastr.error('Error')
       }
@@ -99,6 +102,7 @@ export class AdsService {
       if (data.success) {
         this.toastr.success(data.message)
         this.listAds()
+        this.authService.loadLoggedUserInfo()
         
       } else {
         this.toastr.error(data.message)

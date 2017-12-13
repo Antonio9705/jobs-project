@@ -13,7 +13,6 @@ export class SearchedAdsComponent implements OnInit {
   ads: Ad[]
   pager: any = {}
   pagedItems: Ad[]
-  currentUserId: string
   queries: Object = {}
 
   constructor(
@@ -24,7 +23,6 @@ export class SearchedAdsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.currentUserId = sessionStorage.getItem('userId')
     this.loadAds()
   }
 
@@ -45,7 +43,7 @@ export class SearchedAdsComponent implements OnInit {
 
       if (data.page) {
         if (Number(data.page) < 1 || Number(data.page) > Math.ceil(this.ads.length / 5)) {
-          this.router.navigate([''])
+          this.router.navigate(['search'], { queryParams: this.queries })
           return
         }
 
