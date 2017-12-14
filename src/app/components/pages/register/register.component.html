@@ -1,17 +1,48 @@
 <div class="authForm">
-    <form #registerForm (ngSubmit)="onSubmit($event)" method="POST">
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" [(ngModel)]="username" placeholder="Enter username" required="required" />
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" [(ngModel)]="password" placeholder="Enter password" required="required" />
-      <label for="repeatPass">Repeat Password</label>
-      <input type="password" name="repeatPass" id="repeatPass" [(ngModel)]="repeatPass" placeholder="Repeat password" required="required" />
-      <label for="email">Email</label>
-      <input type="text" name="email" id="email" [(ngModel)]="email" placeholder="Enter email" required="required" />
-      <label for="firstName">First Name</label>
-      <input type="text" name="firstName" id="firstName" [(ngModel)]="firstName" placeholder="Enter first name" required="required" />
-      <label for="lastName">Last Name</label>
-      <input type="text" name="lastName" id="lastName" [(ngModel)]="lastName" placeholder="Enter last name" required="required" />
-      <input type="submit" value="Register">
-    </form>
-  </div>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit($event)" method="POST">
+    <label for="username">Username</label>
+    <input [class.validProperty]="userName.valid" type="text" name="username" id="username" [(ngModel)]="username" placeholder="Enter username"
+      required pattern="[a-zA-Z][a-zA-Z0-9_]{3,9}" #userName="ngModel" />
+    <div [hidden]="userName.valid || userName.pristine || username === ''" class="error">
+      <span>Username must start with lowercase or uppercase letter, has length between 4 and 10 and contains only characters and
+        digits
+      </span>
+    </div>
+
+    <label for="password">Password</label>
+    <input [class.validProperty]="pass.valid" type="password" name="password" id="password" [(ngModel)]="password" placeholder="Enter password"
+      required="required" reverse="true" pattern="[a-zA-Z0-9]{6,}" required validateEqual="repeatPass" #pass="ngModel" />
+
+    <div [hidden]="pass.valid || pass.pristine || password === ''" class="error">
+      <span>Password must contains only letters and digits and has length at least 6 characters</span>
+    </div>
+
+    <label for="repeatPass">Repeat Password</label>
+    <input [class.validProperty]="repeatpass.valid" type="password" name="repeatPass" id="repeatPass" [(ngModel)]="repeatPass"
+      placeholder="Repeat password" required #repeatpass="ngModel" validateEqual="password" />
+
+    <div [hidden]="repeatpass.valid || repeatpass.pristine || repeatPass === ''" class="error">
+      <span>Passwords do not match</span>
+    </div>
+
+    <label for="email">Email</label>
+    <input [class.validProperty]="mail.valid" type="text" name="email" id="email" [(ngModel)]="email" placeholder="Enter email"
+      required validateEmail #mail="ngModel" />
+
+    <div [hidden]="mail.valid || mail.pristine || email === ''" class="error">
+      <span>Invalid E-mail</span>
+    </div>
+
+    <label for="firstName">First Name</label>
+    <input [class.validProperty]="firstname.valid" type="text" name="firstName" id="firstName" [(ngModel)]="firstName" placeholder="Enter first name" 
+    required #firstname="ngModel"
+    />
+
+    <label for="lastName">Last Name</label>
+    <input [class.validProperty]="lastname.valid" type="text" name="lastName" id="lastName" [(ngModel)]="lastName" placeholder="Enter last name" 
+    required #lastname="ngModel"
+    />
+
+    <input type="submit" [class.disable]="!registerForm.valid" [disabled]="!registerForm.valid" value="Register">
+  </form>
+</div>

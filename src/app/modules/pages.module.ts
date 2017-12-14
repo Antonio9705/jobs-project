@@ -17,6 +17,11 @@ import { SearchComponent } from './../components/search/search.component'
 import { SearchedAdsComponent } from '../components/pages/searched-ads/searchedAds.component'
 import { MyAdsComponent } from '../components/pages/my-ads/myAds.component'
 
+//directives
+import { EqualValidator } from './../directives/validateEqual.directive'
+import { EmailValidator } from '../directives/emailValidate.directive'
+
+
 @NgModule({
   imports: [ CommonModule, FormsModule, AppRoutesModule ],
   declarations: [
@@ -31,7 +36,9 @@ import { MyAdsComponent } from '../components/pages/my-ads/myAds.component'
     SearchComponent,
     SearchedAdsComponent,
     MyAdsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EqualValidator,
+    EmailValidator
   ],
   providers: [],
   exports: []

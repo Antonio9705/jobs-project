@@ -1,3 +1,8 @@
 .ads {
   font-size: 15px;
 }
+
+.warning {
+  font-weight: bold;
+  text-align: center;
+}

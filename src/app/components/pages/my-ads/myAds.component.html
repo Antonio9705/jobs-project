@@ -1,4 +1,4 @@
-<table cellPadding="10" class="ads">
+<table *ngIf="ads?.length > 0" cellPadding="10" class="ads">
   <thead>
     <th>Position</th>
     <th>Location</th>
@@ -18,3 +18,4 @@
     </tr>
   </tbody>
 </table>
+<div *ngIf="ads?.length === 0" class="warning">You don't have any ads.</div>

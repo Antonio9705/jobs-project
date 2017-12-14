@@ -122,3 +122,21 @@ footer span {
   font-size: 15px;
   letter-spacing: 1px;
 }
+
+.error {
+  background-color: rgb(145, 1, 1);
+  font-size: 13px;
+  border: 1px solid black;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0.3em;
+  width: 100%;
+}
+
+.validProperty {
+  border-left: 5px solid green;
+}
+
+input[type=submit]:hover {
+  background-color: aliceblue;
+}

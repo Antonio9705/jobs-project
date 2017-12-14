@@ -14,12 +14,14 @@ export class RegisterComponent {
   firstName: string;
   lastName: string;
   email: string;
+  
+  emailPattern: RegExp = new RegExp("(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))")
 
   constructor(
     private authService: AuthService,
     private toastr: ToastrService,
     private router: Router
-  ) { }
+  ) {}
 
   onSubmit(event) {
     const user = {
