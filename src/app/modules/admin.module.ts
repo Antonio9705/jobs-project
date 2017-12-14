@@ -1,14 +1,14 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core"
+import { CommonModule } from "@angular/common"
 import { AppRoutesModule } from './routes.module'
 import { FormsModule } from '@angular/forms'
 
-import { AdminComponent } from '../components/pages/admin/admin/admin.component'
-import { UsersComponent } from '../components/pages/admin/users/users.component'
-import { PollsComponent } from '../components/pages/admin/polls/polls.component'
-import { CreatePollFormComponent } from '../components/pages/admin/polls/create-poll-form/createPollForm.component'
-import { CategoryComponent } from "../components/pages/admin/category/category.component"
-import { CreateCategoryFormComponent } from "../components/pages/admin/category/create-category-form/createCategoryForm.component";
+import { AdminComponent } from '../components/admin/admin/admin.component'
+import { UsersComponent } from '../components/admin/users/users.component'
+import { PollsComponent } from '../components/admin/polls/polls.component'
+import { CreatePollFormComponent } from '../components/admin/polls/create-poll-form/create-poll-form.component'
+import { CategoryComponent } from "../components/admin/category/category.component"
+import { CreateCategoryFormComponent } from "../components/admin/category/create-category-form/create-category-form.component";
 
 import { AdminService } from "../services/admin.service"
 

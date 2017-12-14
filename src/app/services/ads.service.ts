@@ -5,10 +5,9 @@ import { Subject } from 'rxjs/Subject'
 import { Router } from '@angular/router'
 import { ToastrService } from 'toastr-ng2'
 import { Location } from '@angular/common'
-import { Category } from '../components/pages/admin/category/Category'
 import { baseUrl } from './../config/config'
-import { Ad } from '../components/pages/ads-create/Ad'
 import { AuthService } from './auth.service'
+import { Ad } from '../models/Ad'
 
 @Injectable()
 export class AdsService {

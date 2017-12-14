@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 import { ToastrService } from 'toastr-ng2'
-import { Category } from '../components/pages/admin/category/Category'
 import { baseUrl } from './../config/config'
-import { Ad } from '../components/pages/ads-create/Ad'
 import * as _ from 'underscore'
 
 @Injectable()

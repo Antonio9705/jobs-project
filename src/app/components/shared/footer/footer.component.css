@@ -1,0 +1,8 @@
+footer {
+  margin-top: 0.8em;
+  padding: 0.5em;
+  border: 1px solid #6b9ed4;
+  background-color: rgb(208, 231, 252);
+  text-align: right;
+  padding-right: 2em;
+}

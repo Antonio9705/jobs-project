@@ -2,27 +2,28 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
 //components
-import { HomeComponent } from './../components/pages/home/home.component'
-import { LoginComponent } from './../components/pages/login/login.component'
-import { RegisterComponent } from './../components/pages/register/register.component'
-import { NotFoundComponent } from './../components/pages/notFound/notFound.component'
-import { AdminComponent } from '../components/pages/admin/admin/admin.component'
-import { UsersComponent } from '../components/pages/admin/users/users.component'
-import { PollsComponent } from '../components/pages/admin/polls/polls.component'
-import { AdsComponent } from '../components/pages/ads/ads.component'
-import { AdsCreateComponent } from '../components/pages/ads-create/adsCreate.component'
-import { CategoryComponent } from '../components/pages/admin/category/category.component'
-import { AdDetailsComponent } from '../components/pages/ad-details/adDetails.component'
-import { AdDeleteComponent } from '../components/pages/ad-delete/adDelete.component'
-import { AdEditComponent } from '../components/pages/ad-edit/adEdit.component'
-import { SearchedAdsComponent } from '../components/pages/searched-ads/searchedAds.component'
-import { MyAdsComponent } from '../components/pages/my-ads/myAds.component'
+import { LoginComponent } from './../components/authentication/login/login.component'
+import { RegisterComponent } from './../components/authentication/register/register.component'
+import { NotFoundComponent } from './../components/not-found/not-found.component'
+import { AdminComponent } from '../components/admin/admin/admin.component'
+import { UsersComponent } from '../components/admin/users/users.component'
+import { PollsComponent } from '../components/admin/polls/polls.component'
+import { AdsListComponent } from '../components/ads/ads-list/ads-list.component'
+import { AdsCreateComponent } from '../components/ads/ad-create/ads-create.component'
+import { CategoryComponent } from '../components/admin/category/category.component'
+import { AdDetailsComponent } from '../components/ads/ad-details/ad-details.component'
+import { AdDeleteComponent } from '../components/ads/ad-delete/ad-delete.component'
+import { AdEditComponent } from '../components/ads/ad-edit/ad-edit.component'
+import { MyAdsListComponent } from '../components/ads/my-ads-list/my-ads-list.component'
+import { SearchedAdsComponent } from '../components/search/searched-ads/searched-ads.component'
+import { SearchComponent } from '../components/search/search-form/search.component'
 
 //guards
-import { AuthGuard } from './../services/guard.service'
+import { AdminGuard } from './../services/admin-guard.service'
+import { AuthGuard } from '../services/auth-guard.service'
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: SearchComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
@@ -32,16 +33,16 @@ const routes: Routes = [
   },
   {
     path: 'ads', children: [
-      { path: '', component: AdsComponent },
-      { path: 'create', component: AdsCreateComponent },
-      { path: 'own', component: MyAdsComponent },
+      { path: '', component: AdsListComponent },
+      { path: 'create', canActivate: [AuthGuard], component: AdsCreateComponent },
+      { path: 'own', canActivate: [AuthGuard], component: MyAdsListComponent },
       { path: 'details/:id', component: AdDetailsComponent },
-      { path: 'delete/:id', component: AdDeleteComponent },
-      { path: 'edit/:id', component: AdEditComponent }
+      { path: 'delete/:id', canActivate: [AuthGuard], component: AdDeleteComponent },
+      { path: 'edit/:id', canActivate: [AuthGuard], component: AdEditComponent }
     ]
   },
   {
-    path: 'admin', canActivate: [AuthGuard], children: [
+    path: 'admin', canActivate: [AdminGuard], children: [
       { path: '', component: AdminComponent },
       { path: 'users', component: UsersComponent },
       { path: 'categories', component: CategoryComponent },

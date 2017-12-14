@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
-import { Subject } from 'rxjs/Subject';
-import { Poll } from '../components/poll/Poll'
+import { Subject } from 'rxjs/Subject'
 import { AuthService } from './auth.service'
 import { baseUrl } from './../config/config'
+import { Poll } from '../core/Poll'
 
 @Injectable()
 export class PollService {

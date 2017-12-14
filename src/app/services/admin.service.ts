@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-import { User } from './../components/pages/admin/users/User'
 import { ToastrService } from 'toastr-ng2'
 import { baseUrl } from './../config/config'
+import { User } from '../core/User'
 
 @Injectable()
 export class AdminService {

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-import { ToastrService } from 'toastr-ng2';
-import { Category } from '../components/pages/admin/category/Category'
+import { ToastrService } from 'toastr-ng2'
 import { baseUrl } from './../config/config'
+import { Category } from '../core/Category'
 
 @Injectable()
 export class CategoryService {
