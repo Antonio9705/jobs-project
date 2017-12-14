@@ -6,7 +6,7 @@ export class Ad {
   aboutFirm: string
   category: string
   content: string
-  salary: number
+  salary: string
   publisher: string
   createdDate: Date
 

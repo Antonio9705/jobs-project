@@ -22,7 +22,7 @@
     <div class="text">{{ad.firmName}}</div>
   </div>
 
-  <div class="content">
+  <div *ngIf="ad.aboutFirm" class="content">
     <span>About Firm</span>
 
     <div class="text">{{ad.aboutFirm}}</div>
@@ -34,7 +34,7 @@
     <div class="text">{{ad.content}}</div>
   </div>
 
-  <div class="content">
+  <div *ngIf="ad.salary" class="content">
     <span>Salary</span>
 
     <div class="text">{{ad.salary}} lv.</div>

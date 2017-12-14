@@ -1,3 +1,4 @@
+{{ad | json}}
 <h2>Edit Ad</h2>
 <form *ngIf="ad" method="POST" (ngSubmit)="onSubmit()" #adEditForm="ngForm">
   <label for="category">Category</label>
@@ -11,8 +12,12 @@
   <label for="location">Location</label>
   <input type="text" name="location" [(ngModel)]="ad.location" id="location">
 
-  <label for="workType">Work Type</label>
-  <input type="text" name="workType" [(ngModel)]="ad.workType" id="workType">
+  <label for="workType">Work Type
+    <span class="mandatory">*</span>
+  </label>
+  <select name="workType" [(ngModel)]="ad.workType" required>
+    <option *ngFor="let type of workTypes" [value]="type">{{type}}</option>
+  </select>
 
   <label for="firmName">Firm Name</label>
   <input type="text" name="firmName" [(ngModel)]="ad.firmName" id="firmName">
@@ -22,6 +27,9 @@
 
   <label for="content">Content</label>
   <textarea class="area" name="content" [(ngModel)]="ad.content" id="content"></textarea>
+
+  <label for="salary">Salary</label>
+  <input type="numbers" name="salary" [(ngModel)]="ad.salary" id="salary">
 
   <div class="editButtons">
     <input type="button" (click)="returnLastPage()" value="Cancel">

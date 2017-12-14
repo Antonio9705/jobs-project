@@ -12,6 +12,7 @@ import { Category } from '../admin/category/Category'
 export class AdEditComponent implements OnInit {
   ad: Ad
   categories: Category[]
+  workTypes: String[]
 
   constructor(
     private adsService: AdsService,
@@ -20,6 +21,8 @@ export class AdEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.workTypes = [ 'Full-time', 'Part-time', 'Casual', 'Fixed term', 'Shift Workers', 'Probation' ]
+
     this.adsService.getById(this.route.snapshot.params['id'])
       .subscribe((data : any) => {
         if (data.success) {
