@@ -95,19 +95,19 @@ export class SearchedAdsComponent implements OnInit {
           let salary = data[property]
 
           if (salary === 'less than 500 lv.') {
-            this.ads = this.ads.filter(a => a.salary < 500)
+            this.ads = this.ads.filter(a => Number(a.salary) < 500)
           } else if (salary === 'from 500 to 1000 lv.') {
-            this.ads = this.ads.filter(a => a.salary >= 500 && a.salary <= 1000)
+            this.ads = this.ads.filter(a => Number(a.salary) >= 500 && Number(a.salary) <= 1000)
           } else if (salary === 'from 1000 to 1500 lv.') {
-            this.ads = this.ads.filter(a => a.salary >= 1000 && a.salary <= 1500)
+            this.ads = this.ads.filter(a => Number(a.salary) >= 1000 && Number(a.salary) <= 1500)
           } else if (salary === 'from 1500 to 2000 lv.') {
-            this.ads = this.ads.filter(a => a.salary >= 1500 && a.salary <= 2000)
+            this.ads = this.ads.filter(a => Number(a.salary) >= 1500 && Number(a.salary) <= 2000)
           } else if (salary === 'from 2000 to 3000 lv.') {
-            this.ads = this.ads.filter(a => a.salary >= 2000 && a.salary <= 3000)
+            this.ads = this.ads.filter(a => Number(a.salary) >= 2000 && Number(a.salary) <= 3000)
           } else if (salary === 'from 3000 to 5000 lv.') {
-            this.ads = this.ads.filter(a => a.salary >= 3000 && a.salary <= 5000)
+            this.ads = this.ads.filter(a => Number(a.salary) >= 3000 && Number(a.salary) <= 5000)
           } else if (salary === 'more than 5000 lv.') {
-            this.ads = this.ads.filter(a => a.salary > 5000)
+            this.ads = this.ads.filter(a => Number(a.salary) > 5000)
           }
           break;
       }
