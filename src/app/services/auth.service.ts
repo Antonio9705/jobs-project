@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
 import { baseUrl } from './../config/config'
-import { ToastrService } from 'toastr-ng2'
+import { ToastrService } from 'ngx-toastr'
 
 @Injectable()
 export class AuthService {

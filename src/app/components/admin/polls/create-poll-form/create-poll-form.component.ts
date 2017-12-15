@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core'
-import { ToastrService } from 'toastr-ng2'
+import { ToastrService } from 'ngx-toastr'
 import { Poll } from '../../../../core/Poll'
 import { PollService } from '../../../../services/poll.service'
 

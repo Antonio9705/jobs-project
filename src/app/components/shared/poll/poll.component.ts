@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { DecimalPipe } from '@angular/common'
-import { ToastrService } from 'toastr-ng2'
+import { ToastrService } from 'ngx-toastr'
 import { Poll } from '../../../core/Poll'
 import { PollService } from '../../../services/poll.service'
 import { AuthService } from '../../../services/auth.service'

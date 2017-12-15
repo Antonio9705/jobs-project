@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { AuthService } from './../../../services/auth.service'
-import { ToastrService } from 'toastr-ng2';
+import { ToastrService } from 'ngx-toastr'
 import { Router } from '@angular/router'
 
 @Component({

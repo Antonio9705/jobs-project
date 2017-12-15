@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 import { Subject } from 'rxjs/Subject'
-import { ToastrService } from 'toastr-ng2'
+import { ToastrService } from 'ngx-toastr'
 import { baseUrl } from './../config/config'
 import * as _ from 'underscore'
 

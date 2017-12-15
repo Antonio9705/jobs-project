@@ -104,7 +104,7 @@ button.toast-close-button {
   -webkit-box-shadow: 0 0 12px #999999;
   box-shadow: 0 0 12px #999999;
   color: #FFFFFF;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 #toast-container .toast:hover {
   -moz-box-shadow: 0 0 12px #000000;

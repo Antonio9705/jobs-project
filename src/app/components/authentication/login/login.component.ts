@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core'
 import { AuthService } from './../../../services/auth.service'
 import { Observable } from 'rxjs/Observable'
-import { ToastrService } from 'toastr-ng2';
+import { ToastrService } from 'ngx-toastr'
 import { Router } from '@angular/router'
 
 @Component({

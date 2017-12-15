@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { ToastrService } from 'toastr-ng2'
+import { ToastrService } from 'ngx-toastr'
 import { Category } from '../../../core/Category'
 import { CategoryService } from '../../../services/category.service'
 
