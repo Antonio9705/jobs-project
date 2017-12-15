@@ -4,7 +4,7 @@
     <input [class.validProperty]="userName.valid" type="text" name="username" id="username" [(ngModel)]="username" placeholder="Enter username"
       required pattern="[a-zA-Z][a-zA-Z0-9_]{3,9}" #userName="ngModel" />
     <div [hidden]="userName.valid || userName.pristine || username === ''" class="error">
-      <span>Username must start with lowercase or uppercase letter, has length between 4 and 10 and contains only characters and
+      <span>Username must start with lowercase or uppercase letter, has length between 4 and 10 and contains only letters and
         digits
       </span>
     </div>

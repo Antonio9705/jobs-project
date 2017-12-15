@@ -19,7 +19,7 @@
       <div *ngFor="let answer of currentPoll.answers" class="answer">
         <span>
           <strong>{{answer.content}}</strong> -
-          <strong>{{answer.votes}}</strong> votes</span>
+          <strong>{{answer.votes}}</strong> votes ({{answer.votes / pollAllVotes * 100 | number:'1.0-2'}}%)</span>
       </div>
     </div>
   </div>

@@ -2,14 +2,14 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { AppRoutesModule } from './modules/routes.module'
-import { AuthenticationModule } from './modules/auth.module'
-import { AdsModule } from './modules/ads.module'
-import { SharedModule } from './modules/shared.module'
-import { SearchModule } from './modules/search.module'
+import { AuthenticationModule } from './components/authentication/auth.module'
+import { AdsModule } from './components/ads/ads.module'
+import { SharedModule } from './components/shared/shared.module'
+import { SearchModule } from './components/search/search.module'
 import { HttpClientModule } from '@angular/common/http'
 import { ToastrModule } from 'toastr-ng2'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { AdminModule } from './modules/admin.module'
+import { AdminModule } from './components/admin/admin.module'
 import { FormsModule } from '@angular/forms'
 
 //components
@@ -37,7 +37,6 @@ import { PagerService } from './services/pager.service'
     AuthenticationModule,
     SharedModule,
     AdsModule,
-    AdminModule,
     SearchModule,
     HttpClientModule,
     ToastrModule.forRoot(),
